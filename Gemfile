@@ -40,3 +40,7 @@ gem 'jquery-rails'
 gem 'blacklight'
 
 gem "devise"
+
+group :test, :development do
+  gem "rspec-rails", "~> 2.6"
+end
