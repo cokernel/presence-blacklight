@@ -47,4 +47,5 @@ end
 
 group :test, :development do
   gem 'cucumber-rails'
+  gem 'database_cleaner'
 end
