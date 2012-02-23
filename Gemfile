@@ -44,3 +44,7 @@ gem "devise"
 group :test, :development do
   gem "rspec-rails", "~> 2.6"
 end
+
+group :test, :development do
+  gem 'cucumber-rails'
+end
