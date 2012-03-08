@@ -9,7 +9,7 @@ class CatalogController < ApplicationController
   def show
     @response, @document = get_solr_response_for_doc_id    
 
-    mets_response = Typhoeus::Request.get(@document['mets_url_s'])
+    mets_response = Typhoeus::Request.get(@document['mets_url_s'], {:follow_location => true})
     xml = Nokogiri::XML mets_response.body
     @manifest_files = xml.css('Flocat').collect do |node|
       node['href']
