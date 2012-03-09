@@ -11,9 +11,9 @@ class CatalogController < ApplicationController
 
     mets_response = Typhoeus::Request.get(@document['mets_url_s'], {:follow_location => true})
     xml = Nokogiri::XML mets_response.body
-    @manifest_files = xml.css('Flocat').collect do |node|
+    @manifest_files = xml.css('Flocat').collect { |node|
       node['href']
-    end
+    }.sort
 
     respond_to do |format|
       format.html {setup_next_and_previous_documents}
